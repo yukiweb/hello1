@@ -1,0 +1,17 @@
+<div class="w-input" ng-click="showMenu()" style="padding-left:0">
+    <div class="w-inputTitle" style="margin-left:13px;">资源类型</div>
+    <div class="w-select ">
+        <div class="currentSelcet" style="margin-left:13px;">
+            <span class="resourceType">{{selectedName}}</span>
+            <i class="w-arrow-down"></i>
+        </div>
+        <div class="dropDownMenus " ng-if="list">
+            <ul class="menuList">
+                <li ng-click="getVlaue($event)">全部</li>
+                <li ng-click="getVlaue($event)">菜单</li>
+                <li ng-click="getVlaue($event)">页面</li>
+                <li ng-click="getVlaue($event)">功能</li>
+            </ul>
+        </div>
+    </div>
+</div>

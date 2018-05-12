@@ -1,0 +1,67 @@
+<meta charset="utf-8">
+<script src="lib/echarts.min.js"></script>
+<script src="html/home/home.js"></script>
+<link rel="stylesheet" type="text/css" href="html/home/home.css">
+<div ng-controller="home">
+    <div id="content" ng-if="showKpi" data-ng-init="kpiInit()">
+        <div class="main-display main" id="main">
+            <ul class="main-left left">
+                <li class="active">
+                    <a href="#">
+                        <span class="tab-img">
+                            <img src="image/home/home-tab1.png">
+                        </span>
+                        <span class="tab-title" ng-bind='"home.menu.nav"|msLang'></span>
+                    </a>
+                </li>
+            </ul>
+            <div class="main-right right">
+                <div class="public-sentiment box re">
+                    <h3 class="mr-title" ng-bind='"home.content.title"|msLang'></h3>
+                    <div class="btn-group rt">
+                        <label ng-click="drawCharts(1)" class="btn btn-primary time-select" ng-class="{active:isActive[0]}">
+                            <input type="radio"  name="options" id="option1" autocomplete="off" checked>
+                            <em ng-bind='"home.content.hour"|msLang'></em>
+                        </label>
+                        <label ng-click="drawCharts(2)" class="btn btn-primary time-select" ng-class="{active:isActive[1]}">
+                            <input type="radio" name="options" id="option2" autocomplete="off">
+                            <em ng-bind='"home.content.day"|msLang'></em>
+                        </label>
+                        <label ng-click="drawCharts(3)" class="btn btn-primary time-select" ng-class="{active:isActive[2]}">
+                            <input type="radio" name="options" id="option3" autocomplete="off">
+                            <em ng-bind='"home.content.month"|msLang'></em>
+                        </label>
+                    </div>
+                    <div class="charts left">
+                        <div>
+                            <div class="call"></div>
+                            <label class="hasProblem"><em ng-bind='"home.content.unsolved"|msLang'></em>：<span id="accountPro"></span></label>
+                        </div>
+                        <div id="accountchart" style="width: 100%;height:400px;margin-top:20px;"></div>
+                    </div>
+                    <div class="charts left">
+                        <div>
+                            <div class="call"></div>
+                            <label class="hasProblem"><em ng-bind='"home.content.unsolved"|msLang'></em>：<span id="walletPro"></span></label>
+                        </div>
+                        <div id="walletchart" style="width: 100%;height:400px;margin-top:20px;"></div>
+                    </div>
+                    <div class="charts left">
+                        <div>
+                            <div class="call"></div>
+                            <label class="hasProblem"><em ng-bind='"home.content.unsolved"|msLang'></em>：<span id="payPro"></span></label>
+                        </div>
+                        <div id="paychart" style="width: 100%;height:400px;margin-top:20px;"></div>
+                    </div>
+                    <div class="charts left">
+                        <div id="activechart" style="width: 100%;height:400px;margin-top:20px;"></div>
+                    </div>
+                    <div class="mr-footer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-right2" ng-if="!showKpi" data-ng-init="welcomeInit()">
+        <img src="image/home/bg-welcome.png">
+    </div>
+</div>

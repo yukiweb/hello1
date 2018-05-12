@@ -1,0 +1,16 @@
+<meta charset="utf-8">
+<script src="html/setting/setting.js"></script>
+<link rel="stylesheet" type="text/css" href="html/setting/setting.css">
+<div ng-controller="setting" data-ng-init="init()">
+	<ul class="left-nav">
+		<a ng-repeat='item in menu' href="{{item.url}}" ng-click="changeNav(item.url)">
+			<li class="setting-{{item.rsid}}" ng-class="{active:item.active}">
+				<div class="nav-icon"></div>
+				<p ng-bind="item.name"></p>
+			</li>
+		</a>
+	</ul>
+	<div class="left-close-btn" ng-class="{active:closeActive}" ng-click="toggleNav()">
+		<i class="arrow-icon"></i>
+	</div>
+</div>

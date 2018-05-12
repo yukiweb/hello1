@@ -1,0 +1,294 @@
+/*公用*/
+/*清除浮动*/
+.clearfix{
+    display: inline-block;
+}
+.clearfix:after{
+    display:block;
+    content: '';
+    clear: both;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+.logMngt-title {
+    width:100%;
+    height:32px;
+}
+.logMngt-title span{
+    height:32px;
+    line-height:32px;
+    font-size:23px;
+    float:left;
+}
+/*logMngt页面*/
+.queryLogBtn {
+    position: absolute;
+    top: 80px;
+    right: 0px;
+}
+.logMngt-list-query{
+    /*margin:0px 0 20px;*/
+    /*padding:20px 3% 0 3%;*/
+    background:#fff;
+}
+.logMngt-list-query:after{
+    display:block;
+    content:"";
+    clear:both;
+}
+.logMngt-list-query .ms-input{
+    width: 47.9%;
+}
+.logMngt-list-query .ms-input:nth-of-type(2n){
+    margin-right: 0px;
+    float:right;
+}
+.cont{
+    margin-top: 15px;
+    background: #FFFFFF;
+    min-height: 700px;
+    padding: 30px;
+}
+.logMngt-operate-time{
+    width: 48.9%;
+}
+.logMngt-operate-time .timeInput{
+    height: 50px;
+    width: 44.5%;
+    float: left;
+    border: 1px solid #e1e3e5;
+    padding-left: 13px;
+    position: relative;
+}
+.rang {
+    width: 5%;
+    line-height: 40px;
+    float: left;
+    text-align: center;
+    margin: 0.75%;
+}
+.datePicture {
+    width: 20px;
+    height: 24px;
+    position: absolute;
+    right: 10px;
+    bottom: 12px;
+    background: url('image/notice.png') -47px -23px;
+}
+.logMngt-operate-time .timeInput:nth-of-type(2n){
+    float: right;
+}
+.input-top{
+    display: inline;
+    font-size: 12px;
+    color: #91989e;
+    line-height: 26px;
+}
+.input-bottom input {
+    border: 0px;
+}
+.w-required{
+    position: absolute;
+    top: 7px;
+    left: 5px;
+    font-size: 12px;
+    color: #e50017;
+}
+
+/*查询结果显示模块*/
+.listbar{
+    margin-top: 20px;
+}
+.logTreeListHead{
+    list-style: none;
+    height: 30px;
+    color: #7b8084;
+    line-height: 30px;
+    border-top: 1px solid #bac0c6;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 14px;
+}
+.logTreeListHead span:nth-child(1) {
+    width: 6%;
+    margin-left: 3%;
+}
+.logTreeListHead span:nth-child(2) {
+    width: 17%;
+}
+.logTreeListHead span:nth-child(3) {
+    width: 13%;
+}
+.logTreeListHead span:nth-child(4) {
+    width: 18%;
+}
+.logTreeListHead span:nth-child(5) {
+    width: 16%;
+}
+.logTreeListHead span:nth-child(6) {
+    width: 23%;
+}
+.logTreeListHead span {
+    display: inline-block;
+    line-height: 14px;
+    padding-left: 0.5434783%;
+    border-left: 1px solid #e5e5e5;
+}
+/*列表查询结果单元条样式*/
+.logListResultItem span:nth-child(1) {
+    width: 6%;
+    margin-left: 3%;
+}
+.logListResultItem span:nth-child(2) {
+    width: 17%;
+}
+.logListResultItem span:nth-child(3) {
+    width: 13%;
+}
+.logListResultItem span:nth-child(4) {
+    width: 18%;
+}
+.logListResultItem span:nth-child(5) {
+    width: 16%;
+}
+.logListResultItem span:nth-child(6) {
+    width: 23%;
+}
+.logListResultItem {
+    position: relative;
+    list-style: none;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 14px;
+}
+.logListResultItem span {
+    display: inline-block;
+    line-height: 14px;
+    padding-left: 0.5434783%;
+    border-left: 1px solid #e5e5e5;
+}
+.logListResultItem i {
+    position: absolute;
+    top:-4px;
+    left:0px;
+}
+.itemDetail{
+    width: 100%;
+    height:100px;
+    background-color: #e1e3e8;
+}
+.itemDetailLeft {
+    width: 50%;
+}
+.itemDetailright{
+    width: 50%;
+}
+
+.moveUp{                          /*箭头占位符，规定宽高等*/
+    width: 15px;
+    height: 25px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+.moveUp:before, .moveUp:after{     /*伪元素相同属性提取*/
+    content: '';
+    border-color:transparent;      /*边框颜色透明*/
+    border-style: solid;
+    position: absolute;           /*绝对定位，分别定位before和after描绘的内容*/
+}
+.moveUp:before{                 /*伪元素before绘制箭头尾部矩形*/
+    border: none;
+    background: skyblue;
+    height: 60%;
+    width: 30%;
+    top:50%;
+    left: 8px;
+}
+.moveUp:after{                /*伪元素after绘制箭头的头部三角形*/
+    left: 3px;
+    top: -5%;
+    border-width: 7px;
+    border-bottom-color: skyblue;      /*如果绘制向下三角形的话，用border-top-color:#555;*/
+}
+
+.moveDown{                          /*箭头占位符，规定宽高等*/
+    width: 15px;
+    height: 25px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+.moveDown:before, .moveDown:after{     /*伪元素相同属性提取*/
+    content: '';
+    border-color:transparent;      /*边框颜色透明*/
+    border-style: solid;
+    position: absolute;           /*绝对定位，分别定位before和after描绘的内容*/
+}
+.moveDown:before{                 /*伪元素before绘制箭头尾部矩形*/
+    border: none;
+    background: skyblue;
+    height: 60%;
+    width: 30%;
+    top:50%;
+    left: 8px;
+}
+.moveDown:after{                /*伪元素after绘制箭头的头部三角形*/
+    left: 3px;
+    bottom: -69%;
+    border-width: 7px;
+    border-top-color: skyblue;      /*如果绘制向下三角形的话，用border-top-color:#555;*/
+}
+
+/*模态框样式*/
+.modalDirective #mask{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #999999;
+    width: 100%;
+    height: 100%;
+    z-index: 1200;
+    opacity: 0.5;
+}
+
+.modalDirective .modalList{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 5px 10px;
+    transform: translate(-50%,-50%);
+    width: 700px;
+    height: 450px;
+    background: #fff;
+    z-index: 1300;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.modalDirective .modalList .listTitle{
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #999;
+}
+.modalDirective .modalList .listTitle h3{
+    height: 100%;
+    line-height: 40px;
+    font-size: 18px;
+}
+
+.table>thead>tr>th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #ddd;
+}
+
+.table>thead>tr>th{
+    padding: 8px;
+    line-height: 1.42857143;
+}
+th {
+    text-align: left;
+}

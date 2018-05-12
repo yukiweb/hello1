@@ -1,0 +1,49 @@
+<meta charset="utf-8">
+<script src="html/roleMngt/roleMngt.js"></script>
+<link rel="stylesheet" type="text/css" href="html/roleMngt/roleMngt.css">
+<div ng-controller="roleList" data-ng-init="init()">
+	<div class="role-title">
+		<span ng-bind='"role.list.title"|msLang'></span>
+		<a ui-sref="index.setting.addrole">
+			<input type="button" value='{{"role.btn.add"|msLang}}' class="btn-light">
+		</a>
+	</div>
+	<div class="role-list-query">
+		<ms-input title='{{"role.list.query.title"|msLang}}'
+		placeholder='{{"role.list.query.placeholder"|msLang}}'
+		form="role"
+		enter-flag="true"
+		enter-query="query()"></ms-input>
+		<input type="button" value='{{"role.btn.query"|msLang}}' ng-click="query(1)" class="btn-light">
+	</div>
+	<div class="role-list">
+		<dl class="role-item" ng-repeat='item in list'>
+			<dt class="role-item-name" ng-bind="item.roleName"></dt>
+			<dd class="role-item-id" ng-bind="item.roleId"></dd>
+			<hr>
+			<dd class="role-item-member">
+				<em ng-bind='"role.list.member"|msLang'></em>&nbsp;<em ng-bind="item.memberCount"></em>&nbsp;<em ng-bind='"role.list.member.unit"|msLang'></em>
+			</dd>
+			<dd class="role-item-resource">
+				<em ng-bind='"role.list.resource"|msLang'></em><em ng-bind="item.resourceCount"></em><em ng-bind='"role.list.resource.unit"|msLang'></em>
+			</dd>
+			<div class="role-item-btn">
+				<a href="{{'#/setting/viewRole/'+item.roleId}}">
+					<input type="button" value='{{"role.btn.view"|msLang}}' class="btn-light">
+				</a>
+				<input type="button" value='{{"role.btn.delete"|msLang}}' ng-click="del(item.roleId)" class="btn-dark">
+			</div>
+		</dl>
+	</div>
+	<div class="role-list-page">
+		<ms-page page="page" max="7" query="query()"></ms-page>
+	</div>
+	<div class="no-data" ng-show="search&&(!list||!list.length)">
+		<div class="no-data-top"></div>
+		<div class="no-data-content">
+			<i></i>
+			<span><em ng-bind='"role.list.nodata.left"|msLang'></em><em ng-bind="search"></em><em ng-bind='"role.list.nodata.right"|msLang'></em></span>
+		</div>
+		<div class="no-data-hint" ng-bind='"role.list.nodata.other"|msLang'></div>
+	</div>
+</div>

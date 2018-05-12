@@ -1,0 +1,39 @@
+<div class="modalDirective">
+    <!-- 模态框（Modal） -->
+    <div class="modalList">
+        <div class="listTitle">
+            <h3>{{titles}}</h3>
+        </div>
+        <div class="listBody">
+            <table class="table">
+                <thead>
+                    <th style="width: 5%"></th>
+                    <th>模块ID</th>
+                    <th>模块名称</th>
+                    <th>模块描述</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat='choose in arrs'>
+                        <td style="width: 5%;"><span class='w-radio' data-appId = "{{choose.appId}}" ng-click="getIds($event)">
+                            <i class='w-choice'></i>       
+                        </span>
+                        </td>
+                        <td>{{choose.appId}}</td>
+                        <td>{{choose.appName}}</td>
+                        <td>{{choose.appDesc}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="role-list-page">
+            <ms-page page="page" max="7" query="getApps()"></ms-page>
+        </div>
+        <div class="listFooter">
+            <button type="button " class="w-btn w-smallBtn w-spaceBtn cancel " data-dismiss="modal" ng-click="cancel()">取消</button>
+            <button type="button " class="w-btn w-smallBtn w-fillBtn sure ng-binding " ng-click="sure()" style="margin-right: 20px;" ui-sref="index.setting.system">确定</button>
+        </div>
+    </div>
+
+    <div id="mask" ng-click="hideanything()"></div>
+</div>
+<!-- 模态框（Modal） -->

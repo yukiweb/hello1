@@ -1,0 +1,137 @@
+<link rel="stylesheet" href="html/setting/setting.css" />
+<script type="text/javascript" src="html/setting/setting.js"></script>
+<form name="resoMngtAdd_form" novalidate="novalidate" ng-controller="resoAddCtrl">
+    <div class="conRight" style="width:99%;">
+        <div class="clearfix" style="height: 30px;">
+            <h1 ng-if="type=='add'" class="floatL">系统资源管理-新增</h1>
+            <h1 ng-if="type=='addSub' " class="floatL"></h1>
+            <h1 ng-if="type=='view'" class="floatL">系统资源管理-查看</h1>
+            <h1 ng-if="type=='update'" class="floatL">系统资源管理-修改</h1>
+            <button ng-if="type=='view'" type="button " class="w-btn w-fillBtn w-xsmallBtn floatR
+                " ng-click="typeToggle() ">编辑</button>
+        </div>
+        <div class="cont ">
+            <h2>资源信息</h2>
+            <div class="height15 "></div>
+            <div class="clearfix " >
+                <div class='w-input pl_6 ' ng-if="type=='view'&&resourceType=='功能'">
+                    <span class="w-required " ng-show="type!='view' ">*</span>
+                    <div class='w-inputTitle'>资源ID</div>
+                    <input type="text " ng-model="resource.resourceId " name="resourceId
+                    " placeholder="不能超过50个字符" required="required " autocomplete="off " />
+                    <span wo-valid="resoMngtAdd_form.resourceId" pattern-tip="不能为空">
+                </div>
+                <div class='w-input pl_6 ' ng-class="{'disabled':type!='add'}">
+                    <span class="w-required " ng-show="type!='view' ">*</span>
+                    <div class='w-inputTitle'>资源名称</div>
+                    <input type="text " ng-model="_resourceName " name="resourceId
+                    " placeholder="不能超过50个字符" required="required " autocomplete="off " />
+                    <span wo-valid="resoMngtAdd_form.modelVersion" pattern-tip="不能为空">
+                </div>
+                
+                <div class='w-input pl_6 ' ng-click="selectApp()" ng-class="{'disabled':type!='add'}">
+                    <span class="w-required " ng-show="type!='view' ">*</span>
+                    <div class='w-inputTitle'>所属业务模块</div>
+                    <input type="text " ng-model="_resourceNameEn " name="resourceNameEn " placeholder="点击选择所属模块" maxlength="50 " ng-pattern=" " ng-maxlength="50 " required="required
+                " autocomplete="off " /> <i class="point"></i>
+                    <span wo-valid="resoMngtAdd_form.resourceNameEn " unique-tip="" pattern-tip=" "></span>
+                </div>
+            </div>
+            <div class="Mngt_mg20 clearfix" ng-class="{'disabled':type!='add'}">
+                <div class="radioInp floatL">
+                    <div style="position: relative;">
+                        <span class="colorRed" ng-if="type!='view'">*</span>
+                        <span style="margin-left: 15px;">资源类型</span>
+                    </div>
+                 
+                     <div class="radioBox"  style="position: relative;margin-top: 15px;" ng-class="{'disabled':type=='view'}" ng-if='type=="view"'>
+                        <span class='w-radio' ng-show="resourceType==1">
+                            <i class='w-choice '  ng-class="{'active':resourceType==1}" ng-model="resource.resourceType"></i>
+                            <span>菜单</span>
+                        </span>
+                        <span class='w-radio' ng-show="resourceType==2">
+                            <i class='w-choice'  ng-class="{'active':resourceType==2}" ng-model="resource.resourceType"></i>
+                            <span>页面</span>
+                        </span>
+                        <span class='w-radio' ng-show="resourceType==3">
+                            <i class='w-choice'  ng-class="{'active':resourceType==3}" ng-model="resource.resourceType"></i>
+                            <span>功能</span>
+                        </span>
+                    </div>
+                    <!-- 修改的时候 -->
+                     <div class="radioBox"  style="position: relative;margin-top: 15px;" ng-if="type=='update'">
+                        <span class='w-radio' >
+                            <i class='w-choice '  ng-class="{'active':resourceType==1||menu}" ng-model="resource.resourceType" ng-click='selectResourceType(1)'></i>
+                            <span>菜单</span>
+                        </span>
+                        <span class='w-radio' >
+                            <i class='w-choice'  ng-class="{'active':resourceType==2||page}" ng-model="resource.resourceType" ng-click='selectResourceType(2)'></i>
+                            <span>页面</span>
+                        </span>
+                        <span class='w-radio'>
+                            <i class='w-choice'  ng-class="{'active':resourceType==3||fun}" ng-model="resource.resourceType" ng-click='selectResourceType(3)'></i>
+                            <span>功能</span>
+                        </span>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="clearfix">
+                <div class='w-input pl_6 abeled' ng-class="{'disabled':type=='view'}">
+                    <span class="w-required" ng-show="type!='view'">*</span>
+                    <div class='w-inputTitle'>web资源类型</div>
+                    <input type="text" ng-model="_resourceUrl" name="resourceUrl" placeholder="/mysupport/appMng/appList" ng-pattern="/^(\/)/" autocomplete="off" maxlength="500" ng-maxlength="500" required="required" />
+                    <span wo-valid="resoMngtAdd_form.resourceUrl" pattern-tip=""></span>
+                </div>
+            </div>
+            <div class="Mngt_mg20 clearfix" ng-if="type=='add'">
+                <div>
+                    <span style="margin-left:15px;">是否有父资源</span>
+                </div>
+                <div class="radioBox">
+                    <span class='w-radio'>
+                        <i class='w-choice' ng-click="resourceFather();" ng-model="resource.isFatherRes"  ng-class="{'active':resource.isFatherRes}"></i>
+                        <span class='choiceCont' ng-bind=""></span>
+                    </span>
+                </div>
+            </div>
+             <div class="Mngt_mg20 clearfix"  ng-if="_isFatherRes">
+                <div>
+                    <span style="margin-left:15px;">是否有父资源</span>
+                </div>
+                <div class="radioBox">
+                    <span class='w-radio'>
+                        <i class='w-choice'  ng-model="_isFatherRes"  ng-class="{'active':_isFatherRes&&_isFatherRes!=null}"></i>
+                        <span class='choiceCont' ng-bind=""></span>
+                    </span>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class='w-input pl_6 ' ng-if="_isFatherRes">
+                    <span class="w-required " ng-show="type!='view' ">*</span>
+                    <div class='w-inputTitle'>父资源选择</div>
+                     <input type="text" placeholder="请点击选择父资源" id="ResourcesCName" ng-model="resource.fatherResId" readonly="readonly" class="" />
+                <i class="point"></i>
+                    <span wo-valid="resoMngtAdd_form.resourceNameEn " unique-tip="" pattern-tip=" "></span>
+                </div>
+            </div>
+            <div class="w-input w-inputAdd textarea" style="float: none;" ng-class="{'disabled':type=='view'}">
+                <span class="colorRed w-required" style="margin-left: 0;" ng-show="type!='view'">*</span>
+                <div>
+                    <span class="w-inputTitle">资源描述</span>
+                </div>
+                <textarea ng-model="_resourceDesc" id="textarea" class="textArea" placeholder="请输入描述信息" name="resourceDes" required="required" maxlength="500"></textarea>
+                <span wo-valid="resoMngtAdd_form.resourceDes" ng-if="type!='view'"></span>
+            </div>
+        </div>
+        <div class="MngtBtn floatR " style="margin-top:15px;margin-bottom:15px;">
+            <button class='w-btn w-fillBtn w-bigBtn' type="button" ng-if="type=='update'" ng-click="confirmUpdate()">确认修改</button>
+            <button class='w-btn w-fillBtn w-bigBtn' type="button" ng-if="type=='add'">确定</button>
+            <button class='w-btn w-spaceBtn w-bigBtn' type="button" ui-sref="index.setting.system" ng-if="type=='add'">取消</button>
+            <button class='w-btn w-spaceBtn w-bigBtn' type="button" ui-sref="index.setting.system" ng-if="type=='update'">取消</button>
+            <button class='w-btn w-spaceBtn w-bigBtn' type="button" ui-sref="index.setting.system" ng-if="type=='view'">返回</button>
+            
+        </div>
+    </div>
+   
+</form>

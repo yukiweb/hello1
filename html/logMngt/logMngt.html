@@ -1,0 +1,105 @@
+<script type="text/javascript" src="html/logMngt/logMngt.js" charset="utf-8"></script>
+<!--<script src="../../lib/bootstrap.min.js"></script>-->
+<!--<link rel="stylesheet" href="../../css/bootstrap.min.css">-->
+<link rel="stylesheet" href="html/logMngt/logMngt.css">
+<div ng-controller="logMngt" data-ng-init="init()" >
+    <div class="logMngt-title">
+        <span>操作日志查询</span>
+    </div>
+    <div class="cont">
+        <!--操作员查询模块-->
+        <div class="logMngt-list-query" style="position: relative;">
+            <ms-input title="操作员"
+                      placeholder="输入工号或姓名查询"
+                      form="role"
+                      enter-flag="true"
+                      enter-query="query()">
+            </ms-input>
+            <ms-input title="所属业务模块" placeholder="请点击选择" required="false" blur-check="false" ng-click="isShow=!isShow">
+            </ms-input>
+            <msg-modal arrs='resourceApp' ng-if='isShow' is-show='isShow' page="page" max="9" query="getApps()" titles='选择业务模块' class="modalTip" app-content="appContent" draw='draw()'></msg-modal>
+            <button ng-click="queryLogList()" class="w-btn w-fillBtn w-xsmallBtn appMngtBtn queryLogBtn">查询</button>
+        </div>
+        <!--操作时间选择模块-->
+        <div class="logMngt-operate-time clearfix">
+            <div ng-controller="dateStart"  style="position: relative;">
+                <div class="timeInput" ng-click="isShowStart=!isShowStart" >
+                <span class="inputAddon">
+                    <i class="datePicture"></i>
+                </span>
+                    <span class="w-required">*</span>
+                    <div class="input-top">
+                        操作时间
+                    </div>
+                    <div class="input-bottom">
+                        <input type="text" placeholder="请选择时间" class="myStartDate" ng-model="starts">
+                    </div>
+                </div>
+                <!--日历弹出框-->
+                <div>
+                    <date-picker arrCalendar="arrCalendar" class="start" ng-if="isShowStart"></date-picker>
+                </div>
+            </div>
+
+            <span class="rang">至</span>
+
+            <div ng-controller="dateEnd"  style="position: relative;">
+                <div class="timeInput" ng-click="isShowEnd=!isShowEnd">
+                 <span class="inputAddon">
+                    <i class="datePicture"></i>
+                </span>
+                    <span class="w-required">*</span>
+                    <div class="input-top">
+                        操作时间
+                    </div>
+                    <div class="input-bottom">
+                        <input type="text" placeholder="请选择时间" class="myEndDate" ng-model="ends">
+                    </div>
+                </div>
+                <!--日历弹出框-->
+                <div>
+                    <date-picker arrCalendar="arrCalendar" class="end" ng-if="isShowEnd"></date-picker>
+                </div>
+            </div>
+
+        </div>
+
+        <!--查询结果显示模块-->
+        <div class="listbar" ng-if = 'isShowQueryResult'>
+            <div class="logTreeListHead">
+                <span class="ng-binding">序号</span>
+                <span class="ng-binding">操作时间</span>
+                <span class="ng-binding">操作人IP信息</span>
+                <span class="ng-binding">操作人</span>
+                <span class="ng-binding">操作业务模块</span>
+                <span class="ng-binding">操作资源名/URL</span>
+            </div>
+            <div class="logListResult">
+                <div class="logListResultItem" ng-click=changeMoveClass() ng-repeat=" x in logData.data">
+                    <span class="ng-binding">{{$index+1}}</span>
+                    <span class="ng-binding">{{logData.data.operateTime}}</span>
+                    <span class="ng-binding">{{logData.data.operatorip}}</span>
+                    <span class="ng-binding">{{logData.data.operatorresouname}}</span>
+                    <span class="ng-binding">{{}}</span>
+                    <span class="ng-binding">{{}}</span>
+                    <i ng-class="{'moveUp':isMoveUp,'moveDown':isMoveDown}"></i>
+                    <div class="itemDetail" ng-if="isShowDetail">
+                        <div class="itemDetailLeft floatL">
+                            <div>{{}}</div>
+                        </div>
+                        <div class="itemDetailright floatR">
+                            <div class="">{{}}</div>
+                            <div class="">{{}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cancelStaus"></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

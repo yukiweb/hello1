@@ -1,0 +1,558 @@
+@charset "UTF-8";
+[ui-view=right] {
+    float: left;
+    overflow: auto
+}
+
+.ms-xsmallBtn {
+    padding: 0 20px;
+    height: 30px;
+    font-size: 14px
+}
+
+.ms-fillBtn {
+    border: 1px solid #ff3251;
+    background: #ff3251;
+    color: #fff
+}
+
+.ms-btn {
+    outline: 0;
+    border-radius: 2px;
+    cursor: pointer;
+    -ms-border-radius: 2px
+}
+
+.ms-btn.ms-spaceBtn:hover {
+    border-color: #fe4a65;
+    color: #fe4a65
+}
+
+.ms-bigBtn.ms-spaceBtn {
+    height: 38px
+}
+
+.ms-bigBtn {
+    margin-left: 10px
+}
+
+.ms-spaceBtn {
+    border: 1px solid #bfc4cc;
+    background: #fff;
+    color: #36383c
+}
+
+.ms-bigBtn {
+    height: 40px;
+    min-width: 140px;
+    font-size: 1pc
+}
+
+.ms-btn-top {
+    margin-top: 10px
+}
+
+.floatR {
+    float: right
+}
+
+.floatL {
+    float: left
+}
+
+.clearfix:after {
+    clear: both;
+    content: ""
+}
+
+.clearfix {
+    height: 30px
+}
+
+.app-mangt {
+    padding-right: 20px
+}
+
+.appmang-content {
+    margin-top: 15px;
+    padding: 20px;
+    background-color: #fff
+}
+
+.appmang-content:after,
+.appmang-content:before {
+    clear: both;
+    content: ""
+}
+
+.app-table {
+    clear: both
+}
+
+.sectionTitle {
+    display: inline-block;
+    margin-bottom: 15px;
+    font-size: 18px
+}
+
+::-webkit-input-placeholder {
+    color: #d0d3d5
+}
+
+.newsList {
+    position: relative
+}
+
+.newsListSimple span,
+.newsListSimple span a,
+.newsListSimple span i {
+    vertical-align: middle;
+    word-wrap: break-word;
+    word-break: break-all
+}
+
+.newsListSimple span,
+.newsListSimple span a,
+.newsListSimple span:nth-child(6) i,
+.newsListSimple span:nth-child(8) i {
+    word-break: normal
+}
+
+.newsListSimple .newsListItem {
+    border-top: 1px solid #e5e5e5
+}
+
+.newsListSimple .newsListItem span {
+    display: inline-block;
+    line-height: 20px
+}
+
+.nls span:nth-child(1) {
+    width: 3.3%
+}
+
+.listDetail span:nth-child(1) {
+    width: 2.7%
+}
+
+.listDetail span:nth-child(2),
+.nls span:nth-child(2) {
+    width: 20.5%
+}
+
+.listDetail span:nth-child(3),
+.nls span:nth-child(3) {
+    width: 17.5%
+}
+
+.listDetail span:nth-child(4),
+.nls span:nth-child(4) {
+    width: 45.5%
+}
+
+.listDetail span:nth-child(5),
+.nls span:nth-child(5) {
+    width: 10.5%
+}
+
+.listDetail .listText span {
+    width: 100%
+}
+
+.listText a {
+    display: inline-block;
+    padding-right: 5%;
+    border-right: 1px solid #bac0c6;
+    color: #1eabf4;
+    line-height: 14px
+}
+
+.listText .dataFlag {
+    border-right: none
+}
+
+.cancle,
+.listText .updat {
+    margin-left: 0
+}
+
+a {
+    text-decoration: none
+}
+
+.appCont {
+    position: relative;
+    margin-top: 15px;
+    padding: 30px;
+    background: #fff
+}
+
+.newsListSimple>li:first-child span {
+    padding-left: 1%;
+    border-left: 1px solid #bac0c6;
+    color: #7b8084;
+    line-height: 14px
+}
+
+.newsListSimple>li:not(:first-child) span {
+    padding-left: .8%
+}
+
+.newsListSimple>li:first-child {
+    height: 30px;
+    border-top: 1px solid #bac0c6;
+    line-height: 30px
+}
+
+.newsListSimple>li:last-child {
+    border-bottom: 1px solid #e5e5e5
+}
+
+.newsListItem b {
+    margin-right: 10px;
+    color: #e5e5e5
+}
+
+.newsListDetail {
+    padding: 20px;
+    background: #e5e8ee
+}
+
+.listDetail {
+    line-height: 50px
+}
+
+.newsListItemd {
+    width: 48%
+}
+
+.newsListItemd p {
+    padding-right: 20px;
+    word-wrap: break-word
+}
+
+.newsListItemd>p:first-child {
+    color: #6f7479;
+    font-size: 9pt
+}
+
+.newsListSimple .bg_color:nth-child(even) {
+    background-color: #f4f6fa
+}
+
+.details-content {
+    padding-right: 20px
+}
+
+.mt_12 {
+    margin-top: 9pt
+}
+
+.w-input {
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    margin-right: 2.1715527%;
+    margin-bottom: 20px;
+    padding-left: 13px;
+    width: 48.5%;
+    height: 50px;
+    border: 1px solid #e1e3e5;
+    -ms-box-sizing: border-box
+}
+
+.appCont .w-input {
+    width: 48.9%
+}
+
+.appCont .w-input .textarea {
+    width: 100%
+}
+
+.w-input:focus {
+    border-color: #0ea5f3
+}
+
+.w-input:nth-of-type(2n) {
+    margin-right: 0
+}
+
+.w-input input {
+    display: block;
+    width: 100%;
+    height: 18px;
+    outline: 0;
+    border: none;
+    color: #36383c;
+    font-size: 14px
+}
+
+.w-inputTitle {
+    color: #91989e;
+    font-size: 9pt;
+    line-height: 26px
+}
+
+.w-input .w-required {
+    position: absolute;
+    top: 7px;
+    left: 5px;
+    color: #e50017;
+    font-size: 9pt
+}
+
+.w-input .w-search {
+    position: absolute;
+    top: 1pc;
+    right: 10px;
+    display: block;
+    width: 1pc;
+    height: 1pc;
+    background: url(../images/common.png) -1pc 0
+}
+
+.w-input .w-arrow-down {
+    width: 9pt;
+    background: url(../images/common.png) 0 -36px
+}
+
+.w-input .point,
+.w-input .w-arrow-down {
+    position: absolute;
+    top: 21px;
+    right: 9px;
+    display: block;
+    height: 7px;
+    cursor: pointer
+}
+
+.w-input .point {
+    width: 20px;
+    background: url(../img/iconBg.png) -5pc -140px
+}
+
+.w-input .w-inputCont {
+    position: absolute;
+    top: 3pc;
+    left: -1px;
+    z-index: 100000000;
+    display: none;
+    width: 100%;
+    border: 1px solid #e1e3e8
+}
+
+.w-inputCont li {
+    height: 40px;
+    background: #fff;
+    color: #6f7479;
+    text-indent: 13px;
+    line-height: 40px;
+    cursor: pointer
+}
+
+.w-inputCont li:last-child {
+    border: none
+}
+
+.w-inputCont li:hover {
+    background: #f2f5f7;
+    color: #36383c
+}
+
+.w-input.active .w-inputCont {
+    display: block
+}
+
+.w-arrow-down.active {
+    background-position: 0 -44px
+}
+
+.w-input.disabled {
+    border-color: #e1e3e5;
+    background: #f0f2f5!important;
+    color: #91989e
+}
+
+.disabled {
+    pointer-events: none
+}
+
+.disabled.textarea {
+    pointer-events: inherit
+}
+
+.disabled.textarea textarea {
+    pointer-events: none
+}
+
+.w-input.disabled input,
+.w-input.disabled textarea {
+    background: #f0f2f5;
+    color: #36383c
+}
+
+.w-input.textarea {
+    width: 100%;
+    height: 90pt;
+    background: #fff
+}
+
+.textarea textarea {
+    width: 100%;
+    height: 85px;
+    outline: 0;
+    border: none;
+    background-color: #fff;
+    resize: none
+}
+
+.appCont.workflow .w-input.textarea {
+    width: 48.9%
+}
+
+input::-webkit-input-placeholder {
+    color: #d0d3d5
+}
+
+input:-moz-placeholder,
+input::-moz-placeholder {
+    color: #d0d3d5;
+    opacity: 1
+}
+
+input:-ms-input-placeholder {
+    color: #d0d3d5
+}
+
+textarea::-webkit-input-placeholder {
+    color: #d0d3d5
+}
+
+textarea:-moz-placeholder {
+    color: #d0d3d5
+}
+
+textarea::-moz-placeholder {
+    color: #d0d3d5;
+    opacity: 1
+}
+
+textarea:-ms-input-placeholder {
+    color: #d0d3d5
+}
+
+.ms-popupContain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    background-color: rgba(0, 0, 0, .5);
+    justify-content: center;
+    align-items: center
+}
+
+.ms-popupContain.ms-popupContain-flex {
+    display: flex
+}
+
+.ms-content {
+    width: 500px;
+    background: #fff
+}
+
+.ms-popupTitle i {
+    float: right;
+    margin-right: 20px;
+    font-style: normal;
+    cursor: pointer
+}
+
+.ms-popupClose {
+    display: inline-block;
+    margin-top: 9pt;
+    width: 1pc;
+    height: 1pc;
+    background: url(../../image/setting/iconBg.png) 90pt -150px
+}
+
+.ms-popupTitle {
+    height: 44px;
+    background: #6a7782;
+    color: #fff;
+    text-indent: 20px;
+    font-size: 18px;
+    line-height: 44px
+}
+
+.ms-popupContent {
+    padding: 30px;
+    padding-bottom: 30px;
+    min-height: 75pt;
+    font-size: 14px
+}
+
+.ms-popupContent .content {
+    word-break: break-all
+}
+
+.ms-popupContent .sub-content {
+    margin-bottom: 50px;
+    margin-left: 40px;
+    color: #d0d3d5
+}
+
+.ms-popupContent.ms-remention .ms-btnGroup {
+    position: absolute;
+    right: 30px;
+    bottom: 30px
+}
+
+.ms-popupContent .ms-popupIcon {
+    float: left;
+    display: inline-block;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    background: url(../../image/directive/common.png) 0 -110px no-repeat;
+    vertical-align: middle;
+    line-height: 30px
+}
+.ms-popupContent .ms-popupIcon.ask {
+    background-position: 0 -110px
+}
+
+.ms-popupContent .ms-popupIcon.success {
+    background-position: 0 -52px
+}
+
+.ms-popupContent .ms-popupIcon.error {
+    background-position: 0 -139px
+}
+
+.ms-popupContent .ms-popupIcon.warn {
+    background-position: 0 -81px
+}
+
+.ms-btnGroup .ms-btn {
+    float: right
+}
+
+.w-input .w-warning {
+    position: absolute;
+    bottom: -18px;
+    left: 5px;
+    color: #e50017;
+    font-size: 9pt
+}
+
+#add_app .add_input {
+    width: 47.9%
+}
+
+.MngtBtn {
+    margin-top: 15px
+}

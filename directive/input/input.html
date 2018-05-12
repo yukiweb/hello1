@@ -1,0 +1,18 @@
+<div class="ms-input" ng-class="{active:!isValid, textarea:textarea, readonly:readonly, focus:isFocus}">
+	<link rel="stylesheet" type="text/css" href="directive/input/input.css">
+	<span class="ms-required" ng-show="required">*</span>
+	<div class="ms-title" ng-bind="title"></div>
+	<input type="text" placeholder="{{placeholder}}" ng-model="form.value" ng-blur="blur()" ng-keyup="keyup($event)" ng-if="!textarea" ng-readonly="readonly" ng-focus="focus()">
+	<textarea placeholder="{{placeholder}}" ng-model="form.value" ng-blur="blur()" ng-keyup="keyup($event)" ng-if="textarea" maxlength="500" ng-readonly="readonly" ng-focus="focus()"></textarea>
+	<ul class="ms-data-list" ng-if="request" ng-show="list&&list.length">
+		<li ng-repeat="item in list" ng-click="choose(item.account)" ng-bind="item.account"></li>
+	</ul>
+	<span class="ms-hint" ng-show="!isValid">
+		<i></i>
+		<em ng-bind='"directive.input.hint"|msLang'></em>
+	</span>
+	<span class="ms-hint" ng-show="!isUrl">
+		<i></i>
+		<em ng-bind='"ms.appMngt.error.004"|msLang'></em>
+	</span>
+</div>

@@ -1,0 +1,51 @@
+<meta charset="utf-8">
+<script src="html/common/common.js"></script>
+<div ng-controller="common">
+    <div id="header-back">
+        <div id="header" class="clear">
+            <!--LOGO区域-->
+            <div class='logo'>
+                <div class='logo-img'><a ui-sref="index.home"><img src="image/common/TOP-logo.png"/></a></div>
+            </div>
+            <!--导航区域-->
+            <div class='nav'>
+                <ul>
+                	<li ng-repeat='item in menu' ng-class="{active:item.active}">
+                		<a href="{{item.url}}" ng-bind="item.name" ng-click="changeNav(item.url)" id="{{item.id}}"></a>
+                    </li>
+                </ul>
+            </div>
+            <!--系统操作区域-->
+            <div class='system-operation'>
+                <!--角色-->
+                <div class="w-dropdown dropdown dropdown-administrator">
+                    <div id="dropdownMenuRole" class="btn btn-default" type="button">
+                        <span class='role'>
+                            <i class='icon'></i>
+                        </span>
+                        <span class='role'>
+                            <div class="userName" title="{{name}}" ng-bind="name"></div>
+                            <span class="caret"></span>
+                        </span>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li role="presentation" ng-click="exit()">
+                            <a role="menuitem">
+                                <i class="icon exit"></i>
+                                <span ng-bind='"common.header.logout"|msLang'></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-dropdown dropdown dropdown-site disabled">
+                    <div id="dropdownMenuSite" class="btn btn-default" type="button">
+                        <span class="site">
+                            <i class="icon national-flag"></i>
+                            <span ng-bind='"common.header.site"|msLang'></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<meta charset="utf-8">
+<script src="html/roleMngt/roleMngt.js"></script>
+<link rel="stylesheet" type="text/css" href="html/roleMngt/roleMngt.css">
+<div ng-controller="roleView" data-ng-init="init()">
+	<div class="role-title">
+		<span ng-bind='"role.view.title"|msLang'></span>
+		<input type="button" value='{{"role.btn.edit"|msLang}}' ng-click="modify()" class="btn-light">
+	</div>
+	<div class="role-base">
+		<p ng-bind='"role.base.title"|msLang'></p>
+		<ms-input title='{{"role.base.id.title"|msLang}}'
+		form="roleId"
+		required="true"
+		readonly="true"></ms-input>
+		<ms-input title='{{"role.base.name.title"|msLang}}'
+		placeholder='{{"role.base.name.placeholder"|msLang}}'
+		form="form.roleName"
+		readonly="true"></ms-input>
+		<ms-input title='{{"role.base.desc.title"|msLang}}'
+		placeholder='{{"role.base.desc.placeholder"|msLang}}'
+		form="form.roleDesc"
+		textarea="true"
+		readonly="true"></ms-input>
+	</div>
+	<div class="role-user" ng-show="showUser">
+		<div class="role-user-title">
+			<p class="active" ng-bind='"role.user.title"|msLang'></p>
+			<p class="role-user-divide">|</p>
+			<p ng-click="showUser=false" ng-bind='"role.reso.title"|msLang'></p>
+		</div>
+		<div class="role-user-query">
+			<ms-input title='{{"role.user.query.title"|msLang}}'
+			placeholder='{{"role.user.query.placeholder"|msLang}}'
+			form="userName"></ms-input>
+			<input type="button" value='{{"role.btn.query"|msLang}}' ng-click="queryUser()" class="btn-light search">
+		</div>
+		<hr>
+		<div class="role-user-list">
+			<dl ng-repeat='item in user'>
+				<dt class="checkbox" ng-click="item.active=!item.active" ng-class="{active:item.active}"></dt>
+				<dd ng-bind="item.name"></dd>
+			</dl>
+		</div>
+		<div class="no-user" ng-show="!user||!user.length">
+			<i></i>
+			<em ng-bind='"role.user.nodata"|msLang'></em>
+		</div>
+		<div class="role-user-page">
+			<ms-page page="page" max="7" query="query()"></ms-page>
+		</div>		
+	</div>
+	<div class="role-user role-reso" ng-show="!showUser">
+		<div class="role-user-title">
+			<p ng-click="showUser=true" ng-bind='"role.user.title"|msLang'></p>
+			<p class="role-user-divide">|</p>
+			<p class="active" ng-bind='"role.reso.title"|msLang'></p>
+		</div>
+		<div class="role-reso-query">
+			<ms-select select-id="role-view-query"
+			select-title='{{"role.reso.query.select.title"|msLang}}'
+			form="resoType"
+			data="resourceType"></ms-select>
+			<ms-input title='{{"role.reso.query.input.title"|msLang}}'
+			placeholder='{{"role.reso.query.input.placeholder"|msLang}}'
+			form="resoName"></ms-input>
+			<input type="button" value='{{"role.btn.query"|msLang}}' ng-click="queryReso()" class="btn-light search">
+		</div>
+		<ms-relation tree-title="resoTitle" tree-list="resoList"></ms-relation>
+		<div class="no-reso" ng-show="!reso||!reso.length">
+			<i></i>
+			<em ng-bind='"role.reso.nodata"|msLang'></em>
+		</div>
+	</div>
+	<div class="role-btn">
+		<a ui-sref="index.setting.role">
+			<input type="button" value='{{"role.btn.return"|msLang}}' class="btn-dark">
+		</a>
+	</div>
+</div>

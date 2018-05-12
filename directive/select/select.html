@@ -1,0 +1,16 @@
+<div class="ms-select" id="{{selectId}}" ng-class="{active:!isValid}">
+	<link rel="stylesheet" type="text/css" href="directive/select/select.css">
+	<span class="ms-required" ng-show="required">*</span>
+	<div class="ms-title" ng-bind="selectTitle"></div>
+	<div class="ms-area">
+		<span ng-bind="form.value"></span>
+		<i class="ms-arrow"></i>
+		<ul>
+			<li ng-repeat='item in data' ng-click="form.value=item" ng-bind="item"></li>
+		</ul>
+	</div>
+	<span class="ms-hint" ng-show="!isValid">
+		<i></i>
+		<em ng-bind='"directive.input.hint"|msLang'></em>
+	</span>
+</div>

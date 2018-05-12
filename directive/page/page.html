@@ -1,0 +1,19 @@
+<div class="ms-page" ng-show="page.total && page.pages">
+	<link rel="stylesheet" type="text/css" href="directive/page/page.css">
+	<div class="ms-jump">
+		<input type="text" ng-model="pageNum" ng-keyup="keyup()">
+		<input type="button" value='{{"directive.page.button"|msLang}}'' ng-click="click()">
+	</div>
+	<div class="ms-turn">
+		<ul>
+			<li ng-class="{active:page.pageNum>1}" ng-click="pre()"></li>
+			<li ng-repeat='item in pageList' ng-class='{active:item==page.pageNum}' ng-click="turn(item)" ng-bind="item"></li>
+			<li ng-class="{active:page.pageNum<page.pages}" ng-click="next()"></li>
+		</ul>
+	</div>
+	<div class="ms-total">
+		<em ng-bind='"directive.page.total"|msLang'></em><strong ng-bind="page.total"></strong>&nbsp;<em ng-bind='"directive.page.unit"|msLang'></em>&nbsp;&nbsp;<em ng-bind='"directive.page.perpage"|msLang'></em>
+		<select ng-model="page.pageSize" ng-change="changeSize()" ng-options="option for option in page.pageSizeArray"></select>
+		<em ng-bind='"directive.page.unit"|msLang'></em>
+	</div>
+</div>

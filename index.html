@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script src="lib/jquery-1.12.4.min.js"></script>
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/angular-ui-router.min.js"></script>
+	<script src="lib/ocLazyLoad.min.js"></script>
+	<script src="lib/angular-translate.min.js"></script>
+	<script src="lib/angular-translate-loader-static-files.min.js"></script>
+	<script src="base/init.js"></script>
+	<script src="base/language.js"></script>
+	<script src="base/route.js"></script>
+	<script src="base/interceptor.js"></script>
+	<script src="base/service.js"></script>
+	<script src="base/user.js"></script>
+	<script src="base/login.js"></script>
+	<script src="base/language.js"></script>
+	<script src="base/directive.js"></script>
+	<script src="index.js"></script>
+	<link rel="stylesheet" type="text/css" href="html/common/common.css">
+</head>
+<body>
+	<div ng-controller="index" id="mysupport">
+		<div ui-view="login"></div>
+		<div ui-view="header"></div>
+		<div ui-view="content"></div>
+		<div ui-view="footer"></div>
+		<div id="page-loading">
+			<img src="image/common/loading.gif" />
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+@charset "UTF-8";
+.ms-relation{padding:0 3%;clear:both;}
+.relation-tree-title{position:relative;height:30px;color:#7b8084;line-height:30px;border-top:1px solid #bac0c6;border-bottom:1px solid #e5e5e5;}
+.relation-tree-title i{position:absolute;width:16px;height:16px;display:inline-block;top:7px;left:10px;background:url(../../image/directive/common.png) -50px 0;cursor:pointer;}
+.relation-tree-title i.active{background:url(../../image/directive/index1.png) -76px -67px;}
+.relation-tree-title span{display:inline-block;border-left:1px solid #bac0c6;padding-left:10px;line-height:14px;font-size:14px;}
+.relation-tree-title span:nth-child(1){margin-left:3.800217155%;border:0;padding:0;}
+.relation-tree-area{position:relative;overflow:auto;max-height:400px;}
+.relation-tree-item{position:relative;}
+.relation-tree-item:nth-child(odd){background-color:#f4f6fa;}
+.relation-tree-item span{display:inline-block;height:48px;line-height:48px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle;font-size:14px;padding-left:10px;}
+.relation-tree-item span:nth-child(1){margin-left:3.800217155%;padding:0;}
+.relation-tree-item span.relation-tree-fn{cursor:pointer;color:#1eabf4;}
+.relation-tree-item-checkbox{position:absolute;width:16px;height:16px;display:inline-block;top:16px;left:10px;background:url(../../image/directive/common.png) -50px 0;cursor:pointer;}
+.relation-tree-item-checkbox.active{background:url(../../image/directive/index1.png) -76px -67px;}
+.relation-sub-item{position:relative;}
+.y-zhou{display:inline-block;width:8px;height:97%;float:left;border-right:2px dotted #d4d4d4;}
+.relation-sub-item:last-child .y-zhou{height:50%;}
+.x-zhou{display:inline-block;width:9px;height:25px;float:left;border-bottom:2px dotted #d4d4d4;}
+.relation-third-item{position:relative;}
+.item-line{display:inline-block;width:8px;height:97%;float:left;border-right:2px dotted #d4d4d4;}
+.relation-sub-item:last-child .item-line{border:0!important;}
+.item-top{display:inline-block;width:17px;height:98%;float:left;border-right:2px dotted #d4d4d4;}
+.relation-third-item:last-child .item-top{height:50%!important;}
+.item-left{display:inline-block;width:20px;height:25px;float:left;border-bottom:2px dotted #d4d4d4;}
+.child-icon{vertical-align:middle;width:16px;height:16px;cursor:pointer;display:inline-block;background:url(../../image/roleMngt/Icon.png) -26px -2px no-repeat;}
+.child-icon.active{width:16px;height:49px;display:inline-block;background:url(../../image/roleMngt/s_dot.png) 0px -6px no-repeat;}

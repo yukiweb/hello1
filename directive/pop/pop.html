@@ -1,0 +1,22 @@
+<div class="ms-pop">
+	<link rel="stylesheet" type="text/css" href="directive/pop/pop.css">
+	<div class="pop-modal"></div>
+	<div class="pop-area">
+		<div class="pop-content-area">
+			<div class="pop-title">
+				<span ng-bind="popTitle"></span>
+				<i ng-click="cancel()"></i>
+			</div>
+			<div class="pop-content">
+				<div class="pop-text">
+					<i ng-class="{hint:type=='hint'}"></i>
+					<span ng-bind="popContent"></span>
+				</div>
+				<div class="pop-btn">
+					<input type="button" value='{{"directive.pop.sure"|msLang}}' ng-click="sure()" class="pop-btn-light">
+					<input type="button" value='{{"directive.pop.cancel"|msLang}}' ng-click="cancel()" class="pop-btn-dark" ng-if="type!='hint'">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

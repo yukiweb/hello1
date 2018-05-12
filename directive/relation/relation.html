@@ -1,0 +1,41 @@
+<div class="ms-relation">
+	<link rel="stylesheet" type="text/css" href="directive/relation/relation.css">
+	<div class="relation-tree-title">
+		<span ng-repeat="item in treeTitle" ng-style="{'width':90/treeTitle.length+'%'}" ng-bind="item"></span>
+		<i class="relation-checkbox" ng-if="treeSelect" ng-click="chooseAll()" ng-class="{active:selectAll}"></i>
+	</div>
+	<ul class="relation-tree-area">
+		<li ng-repeat="item in treeList" class="relation-tree-item">
+			<span ng-repeat="data in item.data" ng-style="{'width':90/treeTitle.length+'%'}">
+				<i class="child-icon" ng-if="!$index && item.child" ng-click="item.active=!item.active" ng-class="{active:item.active}"></i>
+				<em ng-bind="data"></em>
+			</span>
+			<span ng-if="treeFnFlag" ng-bind="treeFnText" ng-click="click(item.data[1])" class="relation-tree-fn"></span>
+			<i class="relation-tree-item-checkbox" ng-if="treeSelect" ng-click="chooseItem($index)" ng-class="{active:item.selected}"></i>
+			<ul class="relation-sub-area" ng-if="item.child" ng-show="item.active">
+				<li ng-repeat="item2 in item.child" class="relation-sub-item">
+					<span ng-repeat="data2 in item2.data" ng-style="{'width':90/treeTitle.length+'%'}">
+						<i class="y-zhou" ng-if="!$index"></i>
+						<i class="x-zhou" ng-if="!$index"></i>
+						<i class="child-icon" ng-if="!$index && item2.child" ng-click="item2.active=!item2.active" ng-class="{active:item2.active}"></i>
+						<em ng-bind="data2"></em>
+					</span>
+					<span ng-if="treeFnFlag" ng-bind="treeFnText" ng-click="click(item2.data[1])" class="relation-tree-fn"></span>
+					<i class="relation-tree-item-checkbox" ng-if="treeSelect" ng-click="chooseSubItem($parent.$parent.$index,$index)" ng-class="{active:item2.selected}"></i>
+					<ul class="relation-third-area" ng-if="item2.child" ng-show="item2.active">
+						<li ng-repeat="item3 in item2.child" class="relation-third-item">
+							<span ng-repeat="data3 in item3.data" ng-style="{'width':90/treeTitle.length+'%'}">
+								<i class="item-line" ng-if="!$index"></i>
+								<i class="item-top" ng-if="!$index"></i>
+								<i class="item-left" ng-if="!$index"></i>
+								<em ng-bind="data3"></em>
+							</span>
+							<span ng-if="treeFnFlag" ng-bind="treeFnText" ng-click="click(item3.data[1])" class="relation-tree-fn"></span>
+							<i class="relation-tree-item-checkbox" ng-if="treeSelect" ng-click="chooseThirdItem($parent.$parent.$parent.$parent.$index,$parent.$parent.$index,$index)" ng-class="{active:item3.selected}"></i>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>

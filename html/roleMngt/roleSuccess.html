@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+<script src="html/roleMngt/roleMngt.js"></script>
+<link rel="stylesheet" type="text/css" href="html/roleMngt/roleMngt.css">
+<div ng-controller="roleSuccess" data-ng-init="init()">
+	<div class="role-title">
+		<span ng-bind='"role.success.title"|msLang'></span>
+	</div>
+	<div class="success-area">
+		<div class="success-content">
+			<div class="success-title">
+				<i></i>
+				<span ng-bind='"role.success.create"|msLang'></span>
+			</div>
+			<p class="success-role"><em ng-bind='"role.success.role"|msLang'></em><span ng-bind="roleId"></span></p>
+			<div class="success-btn">
+				<a ui-sref="index.setting.role">
+					<input type="button" value='{{"role.btn.return.list"|msLang}}' class="btn-dark">
+				</a>
+				<input type="button" value='{{"role.btn.view.detail"|msLang}}' ng-click="view()" class="btn-light">
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,144 @@
+<meta charset="utf-8">
+<script src="html/roleMngt/roleMngt.js"></script>
+<link rel="stylesheet" type="text/css" href="html/roleMngt/roleMngt.css">
+<div ng-controller="roleAdd" data-ng-init="init()">
+	<div class="role-title">
+		<span ng-bind='"role.add.title"|msLang'></span>
+	</div>
+	<div class="role-base">
+		<p ng-bind='"role.base.title"|msLang'></p>
+		<ms-input title='{{"role.base.name.title"|msLang}}'
+		placeholder='{{"role.base.name.placeholder"|msLang}}'
+		form="form.roleName"
+		required="true"
+		blur-check="true"></ms-input>
+		<ms-input title='{{"role.base.desc.title"|msLang}}'
+		placeholder='{{"role.base.desc.placeholder"|msLang}}'
+		form="form.roleDesc"
+		required="true"
+		blur-check="true"
+		textarea="true"></ms-input>
+	</div>
+	<div class="role-user" ng-show="showUser">
+		<div class="role-user-title">
+			<p class="active" ng-bind='"role.user.title"|msLang'></p>
+			<p class="role-user-divide">|</p>
+			<p ng-click="showUser=false" ng-bind='"role.reso.title"|msLang'></p>
+			<div class="role-user-btn">
+				<input type="button" value='{{"role.user.btn.add"|msLang}}' ng-click="openAddUser()" class="btn-light">
+				<input type="button" value='{{"role.user.btn.delete"|msLang}}' ng-click="inputUserDel()" class="btn-dark">
+			</div>
+		</div>
+		<div class="role-user-query">
+			<ms-input title='{{"role.user.query.title"|msLang}}'
+			placeholder='{{"role.user.query.placeholder"|msLang}}'
+			form="userName"></ms-input>
+			<input type="button" value='{{"role.btn.query"|msLang}}' ng-click="queryUser()" class="btn-light search">
+		</div>
+		<hr>
+			<span class="checkbox" ng-click="chooseAll()" ng-class="{active:userSelectAll}"></span>
+		<hr>
+		<div class="role-user-list">
+			<dl ng-repeat='item in user'>
+				<dt class="checkbox" ng-click="chooseOne(item.userId)" ng-class="{active:item.active}"></dt>
+				<dd ng-bind="item.name"></dd>
+				<span ng-click="inputUserDel([item.userId])" ng-bind='"role.btn.delete"|msLang'></span>
+			</dl>
+		</div>
+		<div class="no-user" ng-show="!user||!user.length">
+			<i></i>
+			<em ng-bind='"role.user.nodata"|msLang'></em>
+		</div>
+		<div class="role-user-page">
+			<ms-page page="page" max="7" query="query()"></ms-page>
+		</div>
+		<div class="role-modal"></div>
+		<div class="role-user-select-area">
+			<div class="role-user-select">
+				<div class="role-user-select-title">
+					<span ng-bind='"role.user.select.title"|msLang'></span>
+					<i ng-click="closeAddUser()"></i>
+				</div>
+				<div class="role-user-select-content" ng-class="{active:userError}">
+					<div class="role-user-select-input-title" ng-bind='"role.user.select.input.title"|msLang'></div>
+					<textarea maxlength="500" placeholder='{{"role.user.select.input.placeholder"|msLang}}' id="addUser" ng-keyup="keyup($event)" ng-model="userText"></textarea>
+					<ul ng-show="showAddUserList">
+						<li ng-repeat='item in userList' ng-click="choose(item)" ng-bind="item.account"></li>
+					</ul>
+					<span ng-show="userError">
+						<i></i>
+						<em ng-bind='"role.user.select.nodata"|msLang'></em>
+					</span>
+				</div>
+				<div class="role-user-select-btn">
+					<input type="button" value='{{"role.btn.sure"|msLang}}' ng-click="inputUser()" class="btn-light">
+					<input type="button" value='{{"role.btn.cancel"|msLang}}' ng-click="closeAddUser()" class="btn-dark">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="role-user role-reso" ng-show="!showUser">
+		<div class="role-user-title">
+			<p ng-click="showUser=true" ng-bind='"role.user.title"|msLang'></p>
+			<p class="role-user-divide">|</p>
+			<p class="active" ng-bind='"role.reso.title"|msLang'></p>
+			<div class="role-user-btn">
+				<input type="button" value='{{"role.reso.btn.add"|msLang}}' ng-click="openAddReso()" class="btn-light">
+				<input type="button" value='{{"role.reso.btn.delete"|msLang}}' ng-click="deleteRelation()" class="btn-dark">
+			</div>
+		</div>
+		<div class="role-reso-query">
+			<ms-select select-id="role-add-query"
+			select-title='{{"role.reso.query.select.title"|msLang}}'
+			form="resoType"
+			data="resourceType"></ms-select>
+			<ms-input title='{{"role.reso.query.input.title"|msLang}}'
+			placeholder='{{"role.reso.query.input.placeholder"|msLang}}'
+			form="resoName"></ms-input>
+			<input type="button" value='{{"role.btn.query"|msLang}}' ng-click="queryReso()" class="btn-light search">
+		</div>
+		<ms-relation tree-title="resoTitle" tree-list="resoList" tree-select="true" tree-fn-flag="true" tree-fn-text='{{"role.btn.unbind"|msLang}}' tree-fn="deleteRelation(id)"></ms-relation>
+		<div class="no-reso" ng-show="!reso||!reso.length">
+			<i></i>
+			<em ng-bind='"role.reso.nodata"|msLang'></em>
+		</div>
+		<div class="role-modal"></div>
+		<div class="role-reso-select-area">
+			<div class="role-reso-select">
+				<div class="role-reso-select-title">
+					<span ng-bind='"role.reso.select.title"|msLang'></span>
+					<i ng-click="closeAddReso()"></i>
+				</div>
+				<div class="role-reso-select-content">
+					<ms-select select-id="add-pop-reso"
+					select-title='{{"role.reso.query.select.title"|msLang}}'
+					form="pop.resoType"
+					data="resourceType"></ms-select>
+					<ms-input title='{{"role.reso.query.input.title"|msLang}}'
+					placeholder='{{"role.reso.query.input.placeholder"|msLang}}'
+					form="pop.resoName"></ms-input>
+					<ms-select select-id="add-pop-appid"
+					select-title='{{"role.reso.select.select.title"|msLang}}'
+					form="pop.appId"
+					data="appId"></ms-select>
+					<input type="button" value='{{"role.btn.query"|msLang}}' ng-click="queryPopReso()" class="btn-light search">
+					<ms-relation tree-title="pop.resoTitle" tree-list="pop.resoList" tree-select="true"></ms-relation>
+					<div class="no-reso" ng-show="!pop.reso||!pop.reso.length">
+						<i></i>
+						<em ng-bind='"role.reso.nodata"|msLang'></em>
+					</div>
+					<div class="role-reso-select-btn">
+						<input type="button" value='{{"role.btn.sure"|msLang}}' ng-click="inputReso()" class="btn-light">
+						<input type="button" value='{{"role.btn.cancel"|msLang}}' ng-click="closeAddReso()" class="btn-dark">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="role-btn">
+		<input type="button" value='{{"role.btn.submit"|msLang}}' ng-click="addRole()" class="btn-light">
+		<a ui-sref="index.setting.role">
+			<input type="button" value='{{"role.btn.cancel"|msLang}}' class="btn-dark">
+		</a>
+	</div>
+</div>

@@ -1,0 +1,70 @@
+<meta charset="utf-8">
+<script src="html/appMngt/appMngt.js"></script>
+<link rel="stylesheet" type="text/css" href="html/appMngt/appMngt.css">
+<link rel="stylesheet" type="text/css" href="html/appMngt/appMngt.css">
+<div ng-controller="appList" class="app-mangt" data-ng-init="init()">
+    <div class="clearfix">
+        <h1 class="floatL">
+      {{"ms.appMngt.title"|msLang}}
+    </h1>
+        <button class="ms-btn ms-xsmallBtn ms-fillBtn floatR" ui-sref="index.setting.createapp" has-permission="setting.createapp">{{"ms.button.add"|msLang}}</button>
+    </div>
+    <div class="appmang-content">
+        <ms-input title="业务名称" placeholder="请输入业务名称" form="resource"  class="floatL"></ms-input>
+
+        <button class="ms-btn ms-xsmallBtn ms-fillBtn floatR ms-btn-top" ng-click='query()'>{{"ms.button.query"|msLang}}</button>
+        <div class="app-table">
+            <ul class="newsList newsListSimple mt20">
+                <li class="newsListItem nls">
+                    <span></span>
+                    <span ng-bind="'ms.appMngt.businessId.label'|msLang"></span>
+                    <span ng-bind="'ms.appMngt.appName.label'|msLang"></span>
+                    <span ng-bind="'ms.appMngt.businessUrl.label'|msLang"></span>
+                    <span ng-bind="'ms.appMngt.operation.label'|msLang"></span>
+                </li>
+                <li class="newsListItem accordion bg_color" ng-repeat="item in items">
+                    <div class="listDetail">
+                        <span><i class="newsListIcon"></i></span>
+                        <span class="listText">
+						<span clamp-ellipsis  clamp="2" title="{{item.appId}}" ng-bind="item.appId"></span>
+                        </span>
+                        <span class="listText">
+						<span clamp-ellipsis clamp="2" title="{{item.appName}}" ng-bind="item.appName"></span>
+                        </span>
+                        <span class="listText">
+						<span clamp-ellipsis clamp="2" title="{{item.rootUrl}}" ng-bind="item.rootUrl"></span>
+                        </span>
+                        <span class="listText">
+						<span clamp-ellipsis clamp="2">
+					
+						<a ng-if="type!='read'&&item.dataFlag!=0" class="updat" ui-sref="index.setting.readapp({businessId:item.appId,type:'update'})" has-permission="setting.readapp" ng-click="appUpdateText()" ng-bind="'ms.button.update'|msLang"></a>
+						<a ng-if="type!='read'&&item.dataFlag!=0" class="cancle" ng-click="cancel(item);" has-permission="setting.app.delete" style="cursor: pointer;color: #1EABF4;" ng-bind="'ms.button.delete'|msLang"></a>
+						</span>
+                        </span>
+                    </div>
+          
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="role-list-page">
+        <ms-page page="page" max="7" query="query()"></ms-page>
+    </div>
+    <div class='ms-popupContain' ng-class="{'ms-popupContain-flex':toolsIn}">
+        <div class="ms-content">
+            <div class="ms-popupTitle">
+                <span ng-bind="boxTitle" class="ng-binding"></span>
+                <i class="ms-popupClose ng-hide" ng-show="true" ng-click="toolsIn=!toolsIn" style=""></i>
+            </div>
+            <div class='ms-popupContent w-remention'>
+                <i class="ms-popupIcon {{type}}">    
+        </i><span ng-bind="content" class="content"></span>
+                <div ng-bind="subContent" class="sub-content"></div>
+                <div class='ms-btnGroup clear'>
+                    <button class='ms-btn ms-xsmallBtn ms-spaceBtn cancel' style="margin-left: 15px;" ng-click='toolsIn=!toolsIn' ng-bind="'ms.appMngt.cancelBtn.button'|msLang">取消</button>
+                    <button class='ms-btn ms-xsmallBtn ms-fillBtn sure' ng-click='sure()' ng-bind="'ms.appMngt.sureBtn.button'|msLang">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+@charset "UTF-8";
+.ms-input{position:relative;width:48.5%;height:50px;margin-bottom:20px;padding-left:13px;border:1px solid #e1e3e5;background:#fff;float:left;}
+.ms-input.readonly,.ms-input.readonly input,.ms-input.readonly textarea{background:#f0f2f5;}
+.ms-input.textarea{height:120px;}
+.ms-input.active{border-color:#ff3251;}
+.ms-input.focus{border-color:#0ea5f3;}
+.ms-input .ms-required{position:absolute;top:7px;left:5px;font-size:12px;color:#e50017;}
+.ms-input .ms-title{line-height:26px;font-size:12px;color:#91989e;}
+.ms-input input{display:block;width:100%;height:18px;border:none;outline:0;font-size:14px;color:#36383c;font-family:Arial;}
+.ms-input textarea{display:block;width:100%;height:86px;padding:2px 10px 2px 2px;border:none;outline:0;font-size:14px;color:#36383c;font-family:Arial;resize:none;box-sizing:border-box;line-height:20px;}
+.ms-input .ms-hint{position:relative;top:7px;line-height:20px;font-size:14px;color:#ff3251;}
+.ms-hint i{display:inline-block;width:15PX;height:15px;margin-right:5px;line-height:20px;vertical-align:middle;background:url(../../image/directive/Icon.png) -26px -77px no-repeat;}
+.ms-data-list{position:absolute;width:100%;max-height:250px;left:-1px;top:48px;overflow:auto;z-index:1;border:solid 1px #e1e3e5;border-top:0;}
+.ms-data-list li{height:40px;line-height:40px;text-indent:13px;cursor:pointer;background:#fff;color:#6f7479;}

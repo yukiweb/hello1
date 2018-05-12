@@ -1,0 +1,399 @@
+@charset "UTF-8";
+h3{
+	margin:0;
+	padding: 0;
+}
+[ui-view=left] {
+	width: 20.85%;
+	margin-right: 20px;
+	background: rgb(231, 234, 237);
+	float: left;
+}
+
+[ui-view=left].close {
+	width: 2px;
+}
+
+[ui-view=right] {
+	width: 77.5%;
+	margin-top: 15px;
+	float: right;
+}
+
+[ui-view=right].close {
+	width: 97%;
+}
+
+@media screen and (max-width:1300px) {
+	[ui-view=right] {
+		width: 75.5%;
+	}
+
+}
+
+.left-title {
+	font-size: 20px;
+	color: #36383c;
+	height: 40px;
+	line-height: 40px;
+	padding: 5px 0;
+	margin-left: 25px;
+	overflow: hidden;
+	cursor: default;
+}
+
+.left-nav li {
+	width: 90%;
+	margin: 0px auto;
+	line-height: 38px;
+	text-align: left;
+	font-size: 14px;
+	position: relative;
+	cursor: pointer;
+	overflow: hidden;
+	border-top: solid 1px #D8DEE5;
+	color: #36383c;
+}
+
+.left-nav a:nth-last-child(1) li {
+	border-bottom: solid 1px #D8DEE5;
+}
+
+.left-nav li:hover,
+.left-nav li.active {
+	background: #d9dde1;
+	z-index: 500;
+	color: #ff3251;
+}
+
+.nav-icon {
+	margin: 6px 15px 0 6px;
+	width: 28px;
+	height: 28px;
+	float: left;
+	background: url(../../image/setting/iconBg.png) no-repeat;
+	background-position: 0px -28px;
+}
+
+.left-nav p {
+	max-width: 215px;
+	line-height: 40px;
+	height: 40px;
+	float: left;
+	font-size: 14px;
+	display: inline-block;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	overflow: hidden;
+	white-space: normal !important;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+}
+
+.setting-resource .nav-icon {
+	background-position: 0px -54px;
+}
+
+.setting-log .nav-icon {
+	background-position: -25px -26px;
+}
+
+.setting-role .nav-icon {
+	background-position: 0px -105px;
+}
+
+.left-close-btn {
+	position: absolute;
+	cursor: pointer;
+	height: 100px;
+	width: 10px;
+	left: 20.85%;
+	top: 50%;
+	margin-top: -50px;
+	transform: translate(0, -50%);
+	-webkit-transform: translate(0, -50%);
+	-ms-transform: translate(0, -50%);
+	background: url(../../image/setting/active.png) no-repeat;
+}
+
+.left-close-btn.active {
+	left: 1px;
+}
+
+.arrow-icon {
+	display: block;
+	position: relative;
+	top: 50%;
+	width: 8px;
+	height: 10px;
+	background: url(../../image/setting/arrow-right.png) center center no-repeat;
+}
+
+.left-close-btn.active .arrow-icon {
+	background: url(../../image/setting/arrow-left.png) center center no-repeat;
+}
+.dropDownMenu {
+	display: none;
+}
+
+.menuList {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	z-index: 2;
+	left: -1px;
+	border: 1px solid #e1e3e5;
+	max-height: 200px;
+	overflow-y: auto;
+	min-width: 100px;
+	background: #ffffff;
+}
+
+.menuList li {
+	line-height: 40px;
+	padding: 3px 13px;
+}
+
+.menuList li:hover {
+	background: #F5F5F5;
+	cursor: pointer;
+}
+/*系统资源管理列表查询样式start*/
+
+.listIcon1 {
+	margin-top: 12px;
+	margin-right: 15px;
+	float: right;
+	height: 15px;
+	width: 15px;
+	background: url(../img/Icon.png) -5px 0 no-repeat;
+}
+
+.listPlush1 {
+	height: 3px;
+	margin-top: 18px;
+	margin-right: 15px;
+	background-position: -5px -74px;
+}
+
+.listText a {
+	/*color: #1EABF4;*/
+	padding-right: 10px;
+	margin-left: 1%;
+	border-right: 1px solid #bac0c6;
+	line-height: 14px;
+	display: inline-block;
+}
+
+.listText .borderRight {
+	border-right: none;
+}
+
+.listText a:last-child {
+	padding-right: 0;
+	border-right: none;
+}
+
+/*系统资源管理列表查询样式*/
+
+.foldedIcon.open {
+	cursor: pointer;
+	width: 16px;
+	height: 49px;
+	display: inline-block;
+	background: url(../../image/roleMngt/s_dot.png) 0px -6px no-repeat;
+}
+
+.foldedIcon {
+	cursor: pointer;
+	vertical-align: middle;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	background: url(../../image/common/Icon.png) -26px -2px no-repeat;
+}
+
+.resourceList{
+	width: 100%;
+
+}
+.resourceList .listHead{
+	border-top: 1px solid #bac0c6;
+	border-bottom: 1px solid #e5e5e5;
+	height: 30px;
+}
+.resourceList .listHead span{
+	display: inline-block;
+	width: 16%;
+	
+	border-left: 1px solid #bac0c6;
+	margin-top: 5px;
+	/*line-height: 30px;*/
+	padding-left: 5px;
+}
+.resourceList .listHead span.iconArea{
+	width: 3%;
+	border: none;
+}
+.listBody li{
+	min-height: 50px;
+	height: auto;
+}
+.listBody li.fatherNode:nth-child(2n+1){
+	background: #f4f6fa;
+}
+.listBody li span{
+	display: inline-block;
+	width: 16%;
+	height: 100%;
+	line-height: 50px;
+	vertical-align: top;
+
+}
+.listBody li span.itemContent{
+	width: 3%;
+	text-align: center;
+	height: 50px;
+	position: relative;
+}
+.listBody li .operationBtns{
+	width: 16%;
+	display: inline-block;
+	height: 50px;
+}
+.listBody li .operationBtns a{
+	display: inline-block;
+	height: 100%;
+	line-height: 50px;
+	margin-right: 10px;
+}
+.childList li span:nth-child(1){
+	margin-left: 10px;
+}
+
+.y{
+	
+    width: 1px;
+    height: 50%;
+    border-right: 2px dotted #d4d4d4;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -12px;
+}
+.x{
+	width: 43%;
+	height: 1px;
+	position: absolute;
+	left: 40%;
+	top: 54%;
+	border-bottom: 2px dotted #d4d4d4;
+	transform: translate(-40%,-54%);
+	-webkit-transform: translate(-40%,-54%);
+	-moz-transform: translate(-40%,-54%);
+	-o-transform: translate(-40%,-54%);
+	-ms-transform: translate(-40%,-54%);
+
+}
+.mgf_26{
+	margin-left: 28px;
+}
+.noList{
+	
+	padding:20px 0;text-align:center;border-bottom:1px solid #E5E5E5;
+	background:#F4F6FA;font-size:14px;line-height:20px;color:#36383c;
+
+}
+
+/*系统资源管理view样式start*/
+.Mngt_mg20 {
+	margin-bottom: 20px;
+}
+
+.addsert,
+.radioBox {
+	padding-left: 13px;
+}
+
+.radioBox,
+.roleCont {
+	margin-top: 5px;
+}
+
+.radioBox input {
+	position: relative;
+}
+.height15{
+	height: 15px;
+}
+.Mngt_mg20.disabled{
+	background: #F0F2F5;
+}
+.hides{
+	display: none;
+}
+.modalDirective{
+	
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+}
+.modalDirective #mask{
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #999999;
+	width: 100%;
+	height: 100%;
+	z-index: 1200;
+	opacity: 0.5;
+}
+.modalDirective .modalList{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	padding: 5px 10px;
+	transform: translate(-50%,-50%);
+	width: 700px;
+	height: 450px;
+	background: #fff;
+	z-index: 1300;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+}
+.modalDirective .modalList .listTitle{
+	height: 40px;
+	width: 100%;
+	border-bottom: 1px solid #999;
+}
+.modalDirective .modalList .listTitle h3{
+	height: 100%;
+	line-height: 40px;
+	font-size: 18px;
+}
+.listBody{
+	
+	padding: 5px 10px;
+}
+.listFooter{
+	
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	height: 40px;
+	width: 680px;
+	/*line-height: 40px;*/
+	/*padding-right: 20px;*/
+}
+.listFooter button{
+	float: right;
+	margin-top: 5px;
+}

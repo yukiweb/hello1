@@ -1,0 +1,56 @@
+<script src="html/appMngt/appMngt.js"></script>
+<link rel="stylesheet" type="text/css" href="html/appMngt/appMngt.css">
+<form name="appAdd_form" novalidate="novalidate" ng-controller="appDetailsCtrl" data-ng-init="init()">
+    <div class="conRight details-content">
+        <div class="clearfix" style="height: 30px;">
+            <h1 class="floatL" ng-if="type=='read'" ng-bind="'ms.appMngt.details.title'|msLang"></h1>
+            <h1 class="floatL" ng-if="type=='update'" ng-bind="'ms.appMngt.update.title'|msLang"></h1>
+            <button type="button" class="ms-btn ms-xsmallBtn ms-fillBtn floatR" ng-click="typeToggle()" ng-bind="'ms.appMngt.edit.label'|msLang" ng-if="type=='read'&&dataFlag!=0"></button>
+        </div>
+        <div class="appCont" show-Type>
+            <h2 ng-bind="'ms.appMngt.Application.information'|msLang" class="sectionTitle"></h2>
+            <div class="clearfix">
+                <div class="w-input disabled w-disabled">
+                    <span class="w-required" ng-show="type!='read'">*</span>
+                    <div class="w-inputTitle">{{'ms.appMngt.businessId.label'|msLang}}</div>
+                    <input type="text" placeholder="{{'ms.appMngt.businessNameEn.placeholder'|msLang}}" ng-model="app.appId" disabled="disabled">
+                </div>
+                <div class="w-input abeled" ng-class="{'disabled':type=='read'}">
+                    <span class="w-required" ng-show="type!='read'">*</span>
+                    <div class="w-inputTitle">{{'ms.appMngt.appName.label'|msLang}}</div>
+                    <input type="text" placeholder="{{'ms.appMngt.appName.placeholder'|msLang}}" ng-model="app.appName" name="businessNameCh" required="required" maxlength="50" autocomplete="off" />
+                    <span class="w-warning" ng-show="appAdd_form.businessNameCh.$error.required">*{{'ms.error.requiredChoose.message'|msLang}}</span>
+
+                </div>
+                <div class="w-input abeled" ng-class="{'disabled':type=='read'}">
+                    <span class="w-required" ng-show="type!='read'">*</span>
+                    <div class="w-inputTitle">{{'ms.appMngt.businessUrl.label'|msLang}}</div>
+                    <input type="url" placeholder="{{'ms.appMngt.businessUrl.placeholder'|msLang}}" ng-model="app.rootUrl" name="rootUrl" required="required" ng-pattern="/^((ht|f)tps?):\/\/[\w\-]+(\.[\w\-]+)+([\w\-\.,@?^=%&!:\/~\+#]*[\w\-\@?^=%&!\/~\+#])?$/" maxlength="100" autocomplete="off" />
+					<span class="w-warning" ng-show="appAdd_form.rootUrl.$error.required">*{{'ms.error.requiredChoose.message'|msLang}}</span>
+                    <span class="w-warning" ng-show="appAdd_form.rootUrl.$error.pattern">*{{'ms.appMngt.error.004'|msLang}}</span>
+                </div>
+            </div>
+            <div class="w-input textarea" ng-class="{'disabled':type=='read'}">
+                <span class="w-required" ng-show="type!='read'">*</span>
+                <div class="w-inputTitle">
+                    <span class="w-inputTitle" ng-bind="'ms.appMngt.busDescription.label'|msLang"></span>
+                </div>
+                <textarea ng-model="app.appDesc" id="textarea" class="textArea" placeholder="{{'ms.appMngt.busDescription.placeholder'|msLang}} " maxlength="500" name="busDescription" required="required"></textarea>
+                <span class="w-warning" ng-show="appAdd_form.busDescription.$error.required">*{{'ms.error.requiredChoose.message'|msLang}}</span>
+                
+		</div>
+            <div style="clear: both"></div>
+        </div>
+        <div class="MngtBtn floatR">
+            <button type="button" class="ms-btn ms-fillBtn ms-bigBtn" ng-click="appGetUpdate(appAdd_form.$valid)" has-permission="setting.readapp.update" ng-bind="'ms.appMngt.sureBtn.button'|msLang" ng-if="type!='read'"></button>
+            <button type="button" class="ms-btn ms-spaceBtn ms-bigBtn" ui-sref="index.setting.app" has-permission="setting.app" ng-bind="'ms.appMngt.cancelBtn.button'|msLang" ng-if="type!='read'"></button>
+            <button type="button" class="ms-btn ms-spaceBtn ms-bigBtn" ui-sref="index.setting.app" has-permission="setting.app" ng-bind="'ms.appMngt.return.label'|msLang" ng-if="type=='read'"></button>
+        </div>
+    </div>
+
+
+</form>
+
+<!-- appAdd_form.$valid -->
+
+

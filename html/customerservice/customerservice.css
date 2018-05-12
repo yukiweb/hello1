@@ -1,0 +1,22 @@
+@charset "UTF-8";
+[ui-view=left]{width:20.85%;margin-right:20px;background:rgb(231,234,237);float:left;}
+[ui-view=left].close{width:2px;}
+[ui-view=right]{position:relative;width:77.5%;margin-top:15px;float:right;}
+[ui-view=right].close{width:97%;}
+@media screen and (max-width:1300px){
+	[ui-view=right]{width:75.5%;}
+}
+.left-title{font-size:20px;color:#36383c;height:40px;line-height:40px;padding:5px 0;margin-left:25px;overflow:hidden;cursor:default;}
+.left-nav li{width:90%;margin:0px auto;line-height:38px;text-align:left;font-size:14px;position:relative;cursor:pointer;overflow:hidden;border-top:solid 1px #D8DEE5;color:#36383c;}
+.left-nav a:nth-last-child(1) li{border-bottom:solid 1px #D8DEE5;}
+.left-nav li:hover,.left-nav li.active{background:#d9dde1;z-index:500;color:#ff3251;}
+.nav-icon{margin:6px 15px 0 6px;width:28px;height:28px;float:left;background:url(../../image/setting/iconBg.png) no-repeat;background-position:0px -27px;}
+.left-nav p{max-width:215px;line-height:40px;height:40px;float:left;font-size:14px;display:inline-block;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;overflow:hidden;white-space:normal!important;text-overflow:ellipsis;word-wrap:break-word;}
+.setting-resource .nav-icon{background-position:0px -54px;}
+.setting-role .nav-icon{background-position:0px -105px;}
+.left-close-btn{position:absolute;cursor:pointer;height:100px;width:10px;left:20.85%;top:50%;margin-top:-50px;transform:translate(0,-50%);-webkit-transform:translate(0,-50%);-ms-transform:translate(0,-50%);background:url(../../image/setting/active.png) no-repeat;}
+.left-close-btn.active{left:1px;}
+.arrow-icon{display:block;position:relative;top:50%;width:8px;height:10px;background:url(../../image/setting/arrow-right.png) center center no-repeat;}
+.left-close-btn.active .arrow-icon{background:url(../../image/setting/arrow-left.png) center center no-repeat;}
+#iframe-loading{position:absolute;height:100%;width:100%;top:0;}
+#iframe-loading img{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);}
